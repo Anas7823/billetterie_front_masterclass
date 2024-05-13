@@ -1,4 +1,5 @@
 import React from 'react';
+import '../assets/css/navbar.css'
 import { TabMenu } from 'primereact/tabmenu';
 import { Button } from 'primereact/button';
 import { useNavigate } from 'react-router-dom';
@@ -10,6 +11,8 @@ export default function NavBar() {
         { label: 'Accueil', icon: 'pi pi-home', command: () => navigate('/') },
         { label: 'Connexion', icon: 'pi pi-user', command: () => navigate('/login') },
         { label: 'Evenement', icon: 'pi pi-tag', command: () => navigate('/evenement') },
+        { label: 'Admin', icon: 'pi pi-lock', command: () => navigate('/admin') },
+
     ];
 
     // Fonction pour déconnecter l'utilisateur et supprimer le cookie
@@ -23,9 +26,11 @@ export default function NavBar() {
     const cookieExists = document.cookie.includes('JWSToken');
 
     return (
-        <div className="flex flex-row gap-6">
-            <TabMenu model={items} />
-            {cookieExists && <Button icon='pi pi-sign-out' label='Déconnexion' onClick={handleDeconnexion} />}
+        <div className="navbar-theming">
+            <div className="flex flex-row gap-6">
+                <TabMenu model={items} />
+                {cookieExists && <Button icon='pi pi-sign-out' label='Déconnexion' onClick={handleDeconnexion} />}
+            </div>
         </div>
     );
 }

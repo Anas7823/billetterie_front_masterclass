@@ -1,5 +1,6 @@
 import NavBar from './components/Navbar';
-import Home from './components/Home';
+import Home from './pages/Home';
+import Admin from './pages/Admin'
 import { Routes, Route } from "react-router-dom";
 import './assets/css/App.css';
 
@@ -9,9 +10,12 @@ function App() {
       <div className="flex justify-content-center align-items-center">
         <NavBar />
       </div>
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/admin" element={<Admin />} />
+        </Routes>
+      </main>
     </div>
   );
 }
