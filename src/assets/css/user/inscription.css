@@ -1,0 +1,56 @@
+.inscription{
+    margin-top: 70px;
+}
+.inscription label{
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #000;
+    text-align: left;
+}
+
+.inscription input{
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+
+.inscription button{
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #000;
+    border-radius: 5px;
+    background-color: #000;
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: bold;
+    transition: 0.5s;
+}
+
+.inscription button:hover{
+    background-color: rgba(119, 164, 255, 0.8);
+    color: #000;
+    border: 1px solid #000;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.inscription .inscriptionForm{
+    width: 50vw;
+    padding: 20px 10%;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.inscription .inscriptionForm h1{
+    font-size: 2em;
+    font-weight: bold;
+    color: #000;
+    text-align: center;
+}
