@@ -16,7 +16,7 @@
     border-radius: 5px;
 }
 
-.inscription button{
+.inscription button[type="submit"]{
     width: 100%;
     padding: 10px;
     margin: 10px 0;
@@ -29,7 +29,7 @@
     transition: 0.5s;
 }
 
-.inscription button:hover{
+.inscription button[type="submit"]:hover{
     background-color: rgba(119, 164, 255, 0.8);
     color: #000;
     border: 1px solid #000;

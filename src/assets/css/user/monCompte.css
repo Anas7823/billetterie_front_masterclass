@@ -1,0 +1,56 @@
+.monCompte{
+    outline: 1px solid black;
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.768);
+    width: 80vw;
+    min-height: 80vh;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.monCompte .header_profil{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.242);
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+}
+
+.monCompte .header_profil .img_pp{
+    border-radius: 360px;
+    width: auto;
+    height: 150px;
+    margin: 0 20px;
+}
+
+.monCompte .historique_reservations{
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+
+.monCompte .historique_reservations h3{
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.monCompte .historique_reservations table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.monCompte .historique_reservations table th{
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.monCompte .historique_reservations table td{
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+}

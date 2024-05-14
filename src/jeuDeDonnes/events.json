@@ -1,0 +1,41 @@
+[
+    {
+        "id_evenement": 1,
+        "nom": "Soirée de lancement",
+        "img": "",
+        "description": "Venez découvrir notre nouvelle collection",
+        "nb_places": 50,
+        "age_requis": 18,
+        "date_debut": "2021-06-01",
+        "date_fin": "2021-06-01",
+        "type": "soirée",
+        "etat": "valide",
+        "justificatif": ""
+    },
+    {
+        "id_evenement": 2,
+        "nom": "Barbecue",
+        "img": "",
+        "description": "Venez déguster nos grillades",
+        "nb_places": 25,
+        "age_requis": 9,
+        "date_debut": "2021-06-01",
+        "date_fin": "2021-06-01",
+        "type": "nourriture",
+        "etat": "valide",
+        "justificatif": ""
+    },
+    {
+        "id_evenement": 3,
+        "nom": "Concert",
+        "img": "",
+        "description": "Venez écouter nos artistes",
+        "nb_places": 100,
+        "age_requis": 12,
+        "date_debut": "2021-06-01",
+        "date_fin": "2021-06-01",
+        "type": "musique",
+        "etat": "valide",
+        "justificatif": ""
+    }
+]

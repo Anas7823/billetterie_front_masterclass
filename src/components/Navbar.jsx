@@ -12,6 +12,7 @@ export default function NavBar() {
         { label: 'Connexion', icon: 'pi pi-user', command: () => navigate('/login') },
         { label: 'Evenement', icon: 'pi pi-tag', command: () => navigate('/evenement') },
         { label: 'Admin', icon: 'pi pi-lock', command: () => navigate('/admin') },
+        { label: 'Mon compte', icon: 'pi pi-face-smile', command: () => navigate('/mon-compte') },
 
     ];
 
