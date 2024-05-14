@@ -12,7 +12,7 @@ export default function AddEvent() {
         date_debut: '',
         date_fin: '',
         description: '',
-        etat: 'ouvert'
+        etat: ''
     });
 
     // fonction pour le jeu de données | A supprimer plus tard
@@ -22,6 +22,10 @@ export default function AddEvent() {
         { label: 'Festival', value: 'festival' },
         { label: 'Concert', value: 'concert' },
         { label: 'Brocante', value: 'brocante' }
+    ];
+    const etats = [
+        { label: 'Valide', value: 'valide' },
+        { label: 'Annule', value: 'annule' },
     ];
 
     const handleInputChange = (event) => {
@@ -37,7 +41,7 @@ export default function AddEvent() {
             date_debut: '',
             date_fin: '',
             description: '',
-            etat: 'ouvert'
+            etat: ''
         });
         setVisible(false);
     };
@@ -66,6 +70,10 @@ export default function AddEvent() {
                     <div className="p-field">
                         <label htmlFor="description">Description</label>
                         <InputText id="description" type="text" name="description" value={evenement.description} onChange={handleInputChange} />
+                    </div>
+                    <div className="p-field">
+                        <label htmlFor="etat">Etat</label>
+                        <Dropdown inputId="etat" name="etat" value={evenement.etat} options={etats} onChange={(e) => setEvenement({ ...evenement, etat: e.value })} placeholder="Sélectionner un type" />
                     </div>
                     <Button label="Ajouter" onClick={handleAddEvenement} />
                 </div>

@@ -1,0 +1,9 @@
+.event-container{
+    border-radius: 20px;
+    transition: transform 0.2s ease-in-out;
+    background-color: rgb(233, 242, 255);
+}
+
+.event-container:hover{
+    transform: scale(1.05);
+}
