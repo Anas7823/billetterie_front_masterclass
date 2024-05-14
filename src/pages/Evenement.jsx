@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../assets/css/Evenement/evenement.css'
 import { Tag } from 'primereact/tag';
+import { Button } from 'primereact/button';
 import evenementsData from '../jeuDeDonnes/events.json';
 
 export default function Evenement() {
@@ -37,6 +38,10 @@ export default function Evenement() {
                                 <p><span className="font-semibold">Date de fin:</span> {new Date(evenement.date_fin).toLocaleString()}</p>
                                 <p><span className="font-semibold">Description:</span> {evenement.description}</p>
                                 <p><span className="font-semibold">État:</span> {statusBadgeTemplate(evenement.etat)}</p>
+                                <div className="flex justify-content-center">
+                                    <Button label="S'inscrire" />
+                                </div>
+
                             </div>
                         )}
                     </div>
