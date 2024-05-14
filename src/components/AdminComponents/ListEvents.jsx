@@ -6,7 +6,7 @@ import { Column } from 'primereact/column';
 import { Tag } from 'primereact/tag';
 import { InputText } from 'primereact/inputtext';
 import { Dropdown } from 'primereact/dropdown';
-import evenementsData from '../../jeuDeDonnes/evenements.json';
+import evenementsData from '../../jeuDeDonnes/events.json';
 
 export default function ListEvents() {
     const [evenements, setEvenements] = useState([]);
@@ -37,7 +37,7 @@ export default function ListEvents() {
     };
 
     const handleEditEvent = () => {
-        const index = evenements.findIndex(event => event.id === editedEvent.id);
+        const index = evenements.findIndex(event => event.id_evenement === editedEvent.id_evenement);
         const updatedEvenements = [...evenements];
         updatedEvenements[index] = editedEvent;
         setEvenements(updatedEvenements);
@@ -51,7 +51,7 @@ export default function ListEvents() {
 
     const confirmDeleteEvent = () => {
         const updatedEvenements = evenements.map(ev =>
-            ev.id === selectedEvent.id ? { ...ev, justificatifAnnulation: cancellationReason } : ev
+            ev.id_evenement === selectedEvent.id_evenement ? { ...ev, justificatifAnnulation: cancellationReason } : ev
         );
         setEvenements(updatedEvenements);
         setDeleteConfirmationVisible(false);
