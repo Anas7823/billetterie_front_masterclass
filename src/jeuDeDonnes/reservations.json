@@ -12,7 +12,7 @@
         "id_reservation": 2,
         "id_user": 2,
         "id_evenement": 2,
-        "UUID": "123456789",
+        "UUID": "12312312432",
         "date_reservation": "2021-06-01",
         "nb_personne": 2,
         "pdf": "" 
@@ -21,7 +21,7 @@
         "id_reservation": 3,
         "id_user": 2,
         "id_evenement": 3,
-        "UUID": "123456789",
+        "UUID": "5678765",
         "date_reservation": "2021-06-01",
         "nb_personne": 2,
         "pdf": "" 
