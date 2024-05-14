@@ -7,6 +7,8 @@ import usersData from '../jeuDeDonnes/users.json';
 function Connexion() {
     const [users, setUsers] = useState([]);
 
+    const [connect , setConnect] = useState(false);
+
     // fonction pour le jeu de données | A supprimer plus tard
     useEffect(() => {
         setUsers(usersData);
@@ -14,28 +16,28 @@ function Connexion() {
 
     const Connecter = async (e) => {
         e.preventDefault();
-        const mail = e.target.elements.email.value;
-        const mdp = e.target.elements.mdp.value;
+        const mail = e.target.email.value;
+        const mdp = e.target.pwd.value;
+
         console.log(mail, mdp);
-      
-        try {
-          const response = await axios.post(`http://localhost:8000/login`, {
-            mail: mail,
-            mdp: mdp
-          });
-          const { userId } = response.data; // Assuming the user ID is included in the response data
-          storeUserInfo(userId); // Enregistrer l'ID de l'utilisateur dans le localStorage
-          console.log(userId);
-          alert(`Connexion réussie !`);
-        } catch (error) {
-          alert('Adresse e-mail ou mot de passe incorrect.');
-          console.error(error);
+        const user = users.find(user => user.mail === mail && user.pwd === mdp);
+
+        if (user) {
+            storeUserInfo(user.id);
+            setConnect(true);
+            window.location.href = "/mon-compte";
+            storeUserInfo(user);
+        } else {
+            alert('Email ou mot de passe incorrect');
         }
     }
 
-    const storeUserInfo = (userId) => {
-        localStorage.setItem('userId', userId);
+    const storeUserInfo = (user) => {
+        localStorage.setItem('userId', user.id);
+        localStorage.setItem('isConnected', true);
+        localStorage.setItem('role', user.role);
     }
+
     
 
 
@@ -48,7 +50,7 @@ function Connexion() {
                     <label htmlFor="email">Email</label>
                     <input type="email" name="email" id="email" />
                     <label htmlFor="password">Mot de passe</label>
-                    <input type="password" name="password" id="password" />
+                    <input type="password" name="pwd" id="password" />
                     <p>
                         <small>
                             Vous n'avez pas de compte ? Cliquez <a href="/inscription">ici</a> !
