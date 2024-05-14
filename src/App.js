@@ -4,6 +4,7 @@ import Admin from './pages/Admin'
 import Footer from './components/Footer'
 import { DataProvider } from './DataProvider/DataProvider';
 import Evenement from './pages/Evenement';
+import Calendrier from './pages/Calendrier';
 import { Routes, Route } from "react-router-dom";
 import './assets/css/App.css';
 import Inscription from './pages/Inscription';
@@ -20,6 +21,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/admin" element={<Admin />} />
+            <Route path="/calendrier" element={<Calendrier />} />
             <Route path='/evenement' element={<Evenement />} />
             <Route path='/inscription' element={<Inscription />} />
             <Route path='/login' element={<Connexion />} />

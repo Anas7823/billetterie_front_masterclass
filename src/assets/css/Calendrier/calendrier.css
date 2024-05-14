@@ -1,0 +1,6 @@
+.calendar-container{
+    width: 500px;
+    border: 2px solid black;
+    border-radius: 20px;
+    padding: 2rem;
+}

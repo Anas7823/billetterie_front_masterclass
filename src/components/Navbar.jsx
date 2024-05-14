@@ -11,6 +11,7 @@ export default function NavBar() {
         { label: 'Accueil', icon: 'pi pi-home', command: () => navigate('/') },
         { label: 'Connexion', icon: 'pi pi-user', command: () => navigate('/login') },
         { label: 'Evenement', icon: 'pi pi-tag', command: () => navigate('/evenement') },
+        { label: 'Calendrier', icon: 'pi pi-calendar', command: () => navigate('/calendrier') },
         { label: 'Admin', icon: 'pi pi-lock', command: () => navigate('/admin') },
 
     ];
