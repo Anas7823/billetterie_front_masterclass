@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "nom": "Doe",
+        "prenom": "John",
+        "age": 25,
+        "mail": "john@gmail.com",
+        "pwd": "1234",
+        "role": "client"
+    },
+    {
+        "id": 2,
+        "nom": "Doe",
+        "prenom": "Jane",
+        "age": 20,
+        "mail": "jane@gmail.com",
+        "pwd": "1234",
+        "role": "client"
+    }
+]

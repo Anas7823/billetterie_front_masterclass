@@ -13,6 +13,7 @@ export default function NavBar() {
         { label: 'Evenement', icon: 'pi pi-tag', command: () => navigate('/evenement') },
         { label: 'Calendrier', icon: 'pi pi-calendar', command: () => navigate('/calendrier') },
         { label: 'Admin', icon: 'pi pi-lock', command: () => navigate('/admin') },
+        { label: 'Mon compte', icon: 'pi pi-face-smile', command: () => navigate('/mon-compte') },
 
     ];
 
