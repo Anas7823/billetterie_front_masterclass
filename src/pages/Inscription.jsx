@@ -43,12 +43,7 @@ function Inscription() {
 
         setUser(user);
         storeUserInfo(user);
-
         setConnect(true);
-
-        // Ajouter le user dans le jeu de données qui est dans un fichier json externe
-        users.push(user);
-        
 
         window.location.href = "/mon-compte";
     }
