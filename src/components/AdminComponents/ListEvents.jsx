@@ -13,10 +13,10 @@ export default function ListEvents() {
     const [visible, setVisible] = useState(false);
     const [selectedEvent, setSelectedEvent] = useState(null);
     const [editedEvent, setEditedEvent] = useState(null);
-
+    const [deleteConfirmationVisible, setDeleteConfirmationVisible] = useState(false);
+    const [cancellationReason, setCancellationReason] = useState("");
 
     // fonction pour le jeu de données | A supprimer plus tard
-
     useEffect(() => {
         setEvenements(evenementsData);
     }, []);
@@ -45,17 +45,27 @@ export default function ListEvents() {
     };
 
     const deleteEvent = (event) => {
-        const index = evenements.findIndex(ev => ev.id === event.id);
-        const updatedEvenements = [...evenements];
-        updatedEvenements.splice(index, 1);
+        setSelectedEvent(event);
+        setDeleteConfirmationVisible(true);
+    };
+
+    const confirmDeleteEvent = () => {
+        const updatedEvenements = evenements.map(ev =>
+            ev.id === selectedEvent.id ? { ...ev, justificatifAnnulation: cancellationReason } : ev
+        );
         setEvenements(updatedEvenements);
+        setDeleteConfirmationVisible(false);
+    };
+
+    const cancelDeleteEvent = () => {
+        setDeleteConfirmationVisible(false);
     };
 
     const actionBodyTemplate = (evenement) => {
         return (
             <div className="flex items-center justify-center">
                 <Button icon="pi pi-pencil" className="p-button-rounded p-button-success p-mr-2" onClick={() => editEvent(evenement)} />
-                <Button icon="pi pi-trash" className="p-button-rounded p-button-danger" onClick={() => deleteEvent(evenement)} />
+                <Button icon="pi pi-times" className="p-button-rounded p-button-danger" onClick={() => deleteEvent(evenement)} />
             </div>
         );
     };
@@ -78,17 +88,18 @@ export default function ListEvents() {
     return (
         <div className="mt-7">
             <DataTable value={evenements} header={header} footer={footer} tableStyle={{ minWidth: '60rem' }}>
+                <Column header="État" body={statusBodyTemplate}></Column>
                 <Column field="nom" header="Nom"></Column>
                 <Column field="type" header="Type"></Column>
                 <Column field="date_debut" header="Date de début"></Column>
                 <Column field="date_fin" header="Date de fin"></Column>
                 <Column field="description" header="Description"></Column>
                 <Column header="Action" body={actionBodyTemplate}></Column>
-                <Column header="État" body={statusBodyTemplate}></Column>
+                <Column field="justificatifAnnulation" header="Justificatif d'annulation"></Column>
             </DataTable>
 
             <Dialog header="Modifier l'événement" visible={visible} style={{ width: '50vw' }} onHide={() => setVisible(false)}>
-                <div className="p-fluid">
+                <div className="flex flex-column gap-3 p-fluid">
                     <div className="p-field">
                         <label htmlFor="type">Type</label>
                         <Dropdown id="type" name="type" value={editedEvent?.type} options={types} onChange={(e) => setEditedEvent({ ...editedEvent, type: e.value })} placeholder="Sélectionner un type" />
@@ -110,6 +121,18 @@ export default function ListEvents() {
                         <InputText id="description" type="text" name="description" value={editedEvent?.description} onChange={handleInputChange} />
                     </div>
                     <Button label="Enregistrer" onClick={handleEditEvent} />
+                </div>
+            </Dialog>
+
+            <Dialog header="Confirmation de suppression" visible={deleteConfirmationVisible} style={{ width: '50vw' }} onHide={cancelDeleteEvent}>
+                <div className="flex flex-column gap-3 p-fluid">
+                    <div className="p-field">
+                        <label htmlFor="cancellationReason">Justificatif d'annulation</label>
+                        <InputText id="cancellationReason" type="text" name="cancellationReason" value={cancellationReason} onChange={(e) => setCancellationReason(e.target.value)} />
+                    </div>
+                    <div className="p-field">
+                        <Button label="Confirmer" onClick={confirmDeleteEvent} />
+                    </div>
                 </div>
             </Dialog>
         </div>
