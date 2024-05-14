@@ -1,5 +1,6 @@
-import React from 'react';
-import '../assets/css/navbar.css'
+import * as React from 'react';
+import { useState, useEffect } from 'react';
+import '../assets/css/navbar.css';
 import { TabMenu } from 'primereact/tabmenu';
 import { Button } from 'primereact/button';
 import { useNavigate } from 'react-router-dom';
@@ -7,13 +8,27 @@ import { useNavigate } from 'react-router-dom';
 export default function NavBar() {
     const navigate = useNavigate();
 
+    const [userLogged, setUserLogged] = useState(false);
+
+    const [userRole, setUserRole] = useState('');
+
+    useEffect(() => {
+        // Vérifier si l'utilisateur est connecté
+        const connected = localStorage.getItem('isConnected');
+        if (connected) {
+            setUserLogged(true);
+            setUserRole(localStorage.getItem('role'));
+        }
+    }, []);
+
     const items = [
         { label: 'Accueil', icon: 'pi pi-home', command: () => navigate('/') },
-        { label: 'Connexion', icon: 'pi pi-user', command: () => navigate('/login') },
+        // Si l'utilisateur est connecté, ne pas afficher le bouton de connexion
+        !userLogged && { label: 'Connexion', icon: 'pi pi-user', command: () => navigate('/login') },
         { label: 'Evenement', icon: 'pi pi-tag', command: () => navigate('/evenement') },
         { label: 'Calendrier', icon: 'pi pi-calendar', command: () => navigate('/calendrier') },
-        { label: 'Admin', icon: 'pi pi-lock', command: () => navigate('/admin') },
-        { label: 'Mon compte', icon: 'pi pi-face-smile', command: () => navigate('/mon-compte') },
+        userRole=='admin' && { label: 'Admin', icon: 'pi pi-lock', command: () => navigate('/admin') },
+        userLogged && { label: 'Mon compte', icon: 'pi pi-face-smile', command: () => navigate('/mon-compte') },
 
     ];
 
