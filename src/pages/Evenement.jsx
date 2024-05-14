@@ -29,7 +29,7 @@ export default function Evenement() {
             <div className="flex flex-row justify-content-center gap-5">
                 {evenements.map((evenement) => (
                     <div key={evenement.id} className="flex flex-column p-4 event-container w-500 h-full" onClick={() => handleEventClick(evenement)}>
-                        <h2 className="text-xl font-semibold">{evenement.nom}</h2>
+                        <h2 className="flex justify-content-center text-xl font-semibold">{evenement.nom}</h2>
                         {selectedEvent && selectedEvent.id === evenement.id && (
                             <div className="mt-3">
                                 <p><span className="font-semibold">Type:</span> {evenement.type}</p>
