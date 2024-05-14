@@ -73,7 +73,7 @@ function MonCompte() {
                         <h2>Utilisateur non trouvé</h2>
                     )}
                 </div>
-                {user && (
+                {user ? (
                     <>
                         <div className="infos">
                             <h3>Informations</h3>
@@ -119,6 +119,10 @@ function MonCompte() {
                             )}
                         </div>
                     </>
+                ) : (
+                    <div className="text-center">
+                        <iframe src="https://giphy.com/embed/fnuSiwXMTV3zmYDf6k" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/fnuSiwXMTV3zmYDf6k">via GIPHY</a></p>
+                    </div>
                 )}
             </div>
         </div>
