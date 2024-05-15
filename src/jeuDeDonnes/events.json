@@ -42,8 +42,8 @@
     {
         "id_evenement": 4,
         "nom": "festival",
-        "img": "https://www.classykeo.com/wp-content/uploads/2021/05/d5c02c9c93_50165980_concert.jpeg",
-        "description": "Venez écouter nos artistes",
+        "img": "https://www.amsterdammagazine.com/app/uploads/2017/10/festival-1.jpg",
+        "description": "Venez svp",
         "nb_places": 100,
         "age_requis": 12,
         "date_debut": "2024-06-01",
@@ -56,8 +56,8 @@
     {
         "id_evenement": 5,
         "nom": "Dégustation",
-        "img": "https://www.classykeo.com/wp-content/uploads/2021/05/d5c02c9c93_50165980_concert.jpeg",
-        "description": "Venez écouter nos artistes",
+        "img": "https://www.hachette.fr/sites/default/files/burger-verrecchia.jpg",
+        "description": "Venez manger",
         "nb_places": 100,
         "age_requis": 12,
         "date_debut": "2024-06-01",
