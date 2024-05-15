@@ -58,7 +58,7 @@ export default function Evenement() {
     };
 
     return (
-        <div className="flex flex-wrap flex-column align-items-center justify-content-center mt-7">
+        <div className="flex flex-column align-items-center justify-content-center mt-7">
             <h1 className="text-3xl font-semibold mb-5">Événements</h1>
             <div className="flex flex-wrap flex-row justify-content-center gap-5">
                 {evenements.map((evenement) => (
@@ -75,16 +75,17 @@ export default function Evenement() {
                                 <p><span className="font-semibold">Places restantes: </span> {placesRestantes(evenement)}</p>
                                 <p><span className="font-semibold">Description:</span> {evenement.description}</p>
                                 <p><span className="font-semibold">État:</span> {statusBadgeTemplate(evenement.etat === 'valide' ? "ouvert" : "annulé")}</p>
-                                {evenement.etat === 'valide' && placesRestantes(evenement) > 0 && (
+                                {userConnected && evenement.etat === 'valide' && placesRestantes(evenement) > 0 && (
                                     <>
                                         <Button label="Réserver" className="p-button-help" onClick={(e) => { e.stopPropagation(); showDialog(); }} />
                                         <Dialog header={evenement.nom} visible={visible} style={{ width: '50vw' }} onHide={hideDialog}>
+                                            <form action="" onSubmit={(e) => { e.preventDefault(); hideDialog(); }} className="flex flex-column gap-2">
                                                 <label htmlFor="nbPersonne">Nombre de personnes</label>
                                                 <InputText id="nbPersonne" type="number" />
                                                 <label htmlFor="dateReservation">Date de réservation</label>
                                                 <InputText id="dateReservation" type="date" />
                                                 <Button label="Réserver" className="p-button-help" type='submit' />
-
+                                            </form>
                                         </Dialog>
                                     </>
                                 )}
