@@ -5,7 +5,6 @@ import { InputText } from 'primereact/inputtext';
 import React, { useState, useEffect } from 'react';
 import '../assets/css/Evenement/evenement.css'
 import { Tag } from 'primereact/tag';
-import { Button } from 'primereact/button';
 import evenementsData from '../jeuDeDonnes/events.json';
 import reservationData from '../jeuDeDonnes/reservations.json';
 import usersData from '../jeuDeDonnes/users.json';
