@@ -1,7 +1,7 @@
 import '../assets/css/user/inscription.css';
 import * as React from "react";
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import usersData from '../jeuDeDonnes/users.json';
 
 function Connexion() {
