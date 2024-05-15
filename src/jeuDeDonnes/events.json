@@ -38,4 +38,33 @@
         "etat": "annule",
         "justificatif": ""
     }
+    ,
+    {
+        "id_evenement": 4,
+        "nom": "festival",
+        "img": "https://www.classykeo.com/wp-content/uploads/2021/05/d5c02c9c93_50165980_concert.jpeg",
+        "description": "Venez écouter nos artistes",
+        "nb_places": 100,
+        "age_requis": 12,
+        "date_debut": "2024-06-01",
+        "date_fin": "2024-06-01",
+        "type": "musique",
+        "etat": "valide",
+        "justificatif": ""
+    }
+    ,
+    {
+        "id_evenement": 5,
+        "nom": "Dégustation",
+        "img": "https://www.classykeo.com/wp-content/uploads/2021/05/d5c02c9c93_50165980_concert.jpeg",
+        "description": "Venez écouter nos artistes",
+        "nb_places": 100,
+        "age_requis": 12,
+        "date_debut": "2024-06-01",
+        "date_fin": "2024-06-01",
+        "type": "nourriture",
+        "etat": "valide",
+        "justificatif": ""
+    }
+    
 ]
