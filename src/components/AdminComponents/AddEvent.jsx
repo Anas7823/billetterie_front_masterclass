@@ -4,10 +4,11 @@ import { Dialog } from 'primereact/dialog';
 import { InputText } from 'primereact/inputtext';
 import { Dropdown } from 'primereact/dropdown';
 
-export default function AddEvent() {
+export default function AddEvent({ addEvent }) {
     const [visible, setVisible] = useState(false);
     const [evenement, setEvenement] = useState({
         type: '',
+        img:'',
         nom: '',
         date_debut: '',
         date_fin: '',
@@ -34,9 +35,10 @@ export default function AddEvent() {
     };
 
     const handleAddEvenement = () => {
-        console.log("Nouvel événement ajouté :", evenement);
+        addEvent(evenement);
         setEvenement({
             type: '',
+            img:'',
             nom: '',
             date_debut: '',
             date_fin: '',
@@ -70,6 +72,10 @@ export default function AddEvent() {
                     <div className="p-field">
                         <label htmlFor="description">Description</label>
                         <InputText id="description" type="text" name="description" value={evenement.description} onChange={handleInputChange} />
+                    </div>
+                    <div className="p-field">
+                        <label htmlFor="img">Lien image</label>
+                        <InputText id="img" type="img" name="img" value={evenement.img} onChange={handleInputChange} />
                     </div>
                     <div className="p-field">
                         <label htmlFor="etat">Etat</label>

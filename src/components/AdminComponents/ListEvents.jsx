@@ -6,6 +6,7 @@ import { Column } from 'primereact/column';
 import { Tag } from 'primereact/tag';
 import { InputText } from 'primereact/inputtext';
 import { Dropdown } from 'primereact/dropdown';
+import AddEvent from './AddEvent';
 import evenementsData from '../../jeuDeDonnes/events.json';
 
 export default function ListEvents() {
@@ -85,7 +86,11 @@ export default function ListEvents() {
     const footer = `Total d'événements : ${evenements.length}`;
 
     const imageBodyTemplate = (evenement) => {
-        return <img src={evenement.img} alt="image" style={{ width: '150px', height: 'auto', borderRadius:'15px' }} />;
+        return <img src={evenement.img} alt="image" style={{ width: '50px', height: '50px' }} />;
+    };
+
+    const addEvent = (newEvent) => {
+        setEvenements([...evenements, newEvent]);
     };
 
     return (
@@ -101,6 +106,11 @@ export default function ListEvents() {
                 <Column header="Action" body={actionBodyTemplate}></Column>
                 <Column field="justificatifAnnulation" header="Justificatif d'annulation"></Column>
             </DataTable>
+            <div className="flex justify-content-center mt-6">
+                <AddEvent addEvent={addEvent} />
+            </div>
+
+
 
             <Dialog header="Modifier l'événement" visible={visible} style={{ width: '50vw' }} onHide={() => setVisible(false)}>
                 <div className="flex flex-column gap-3 p-fluid">

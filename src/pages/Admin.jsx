@@ -9,7 +9,6 @@ export default function Admin() {
             <ListEvents />
             <div className="flex justify-content-center">
                 <div className="flex flex-row justify-content-center">
-                    <div className=""><AddEvent/></div>
                 </div>
             </div>
         </div>
