@@ -63,12 +63,14 @@ export default function Evenement() {
             <div className="flex flex-row justify-content-center gap-5">
                 {evenements.map((evenement) => (
                     <div key={evenement.id_evenement} className="flex flex-column p-4 event-container w-500 h-full" onClick={() => handleEventClick(evenement)}>
+                        <img src={evenement.img} alt={evenement.id_evenement} />
                         <h2 className="flex justify-content-center text-xl font-semibold">{evenement.nom}</h2>
                         {selectedEvent && selectedEvent.id_evenement === evenement.id_evenement && (
                             <div className="mt-3">
                                 <p><span className="font-semibold">Type:</span> {evenement.type}</p>
                                 <p><span className="font-semibold">Date de début:</span> {new Date(evenement.date_debut).toLocaleString()}</p>
                                 <p><span className="font-semibold">Date de fin:</span> {new Date(evenement.date_fin).toLocaleString()}</p>
+                                
                                 <p><span className="font-semibold">Nombre de places: </span> {evenement.nb_places}</p>
                                 <p><span className="font-semibold">Places restantes: </span> {placesRestantes(evenement)}</p>
                                 <p><span className="font-semibold">Description:</span> {evenement.description}</p>
