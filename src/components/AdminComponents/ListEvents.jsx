@@ -16,7 +16,6 @@ export default function ListEvents() {
     const [deleteConfirmationVisible, setDeleteConfirmationVisible] = useState(false);
     const [cancellationReason, setCancellationReason] = useState("");
 
-    // fonction pour le jeu de données | A supprimer plus tard
     useEffect(() => {
         setEvenements(evenementsData);
     }, []);
@@ -51,7 +50,7 @@ export default function ListEvents() {
 
     const confirmDeleteEvent = () => {
         const updatedEvenements = evenements.map(ev =>
-            ev.id_evenement === selectedEvent.id_evenement ? { ...ev, justificatifAnnulation: cancellationReason } : ev
+            ev.id_evenement === selectedEvent.id_evenement ? { ...ev, etat: 'ferme', justificatifAnnulation: cancellationReason } : ev
         );
         setEvenements(updatedEvenements);
         setDeleteConfirmationVisible(false);
@@ -85,10 +84,15 @@ export default function ListEvents() {
 
     const footer = `Total d'événements : ${evenements.length}`;
 
+    const imageBodyTemplate = (evenement) => {
+        return <img src={evenement.img} alt="image" style={{ width: '150px', height: 'auto', borderRadius:'15px' }} />;
+    };
+
     return (
         <div className="mt-7">
             <DataTable value={evenements} header={header} footer={footer} tableStyle={{ minWidth: '60rem' }}>
                 <Column header="État" body={statusBodyTemplate}></Column>
+                <Column header="Image" body={imageBodyTemplate}></Column>
                 <Column field="nom" header="Nom"></Column>
                 <Column field="type" header="Type"></Column>
                 <Column field="date_debut" header="Date de début"></Column>
