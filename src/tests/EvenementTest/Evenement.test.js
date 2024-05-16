@@ -1,10 +1,10 @@
 import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import Evenement from '../pages/Evenement';
-import EvenementData from '../jeuDeDonnes/events.json';
-import ReservationData from '../jeuDeDonnes/reservations.json';
-import UsersData from '../jeuDeDonnes/users.json';
+import Evenement from '../../pages/Evenement';
+import EvenementData from '../../jeuDeDonnes/events.json';
+import ReservationData from '../../jeuDeDonnes/reservations.json';
+import UsersData from '../../jeuDeDonnes/users.json';
 
 
 
@@ -35,7 +35,8 @@ describe('Evenement', () => {
     const reservations = ReservationData.filter(reservation => reservation.id_evenement === event.id_evenement);
     const placesRestantes = event.nb_places - reservations.length;
     await waitFor(() => {
-      expect(screen.getByText(new RegExp(placesRestantes.toString()))).toBeInTheDocument();
+      const placesRestantesContainer = screen.getByTestId('places-restantes');
+      expect(placesRestantesContainer).toHaveTextContent(placesRestantes.toString());
     });
   });
 });

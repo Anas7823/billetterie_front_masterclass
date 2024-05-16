@@ -8,7 +8,7 @@ export default function AddEvent({ addEvent }) {
     const [visible, setVisible] = useState(false);
     const [evenement, setEvenement] = useState({
         type: '',
-        img:'',
+        img: '',
         nom: '',
         date_debut: '',
         date_fin: '',
@@ -38,7 +38,7 @@ export default function AddEvent({ addEvent }) {
         addEvent(evenement);
         setEvenement({
             type: '',
-            img:'',
+            img: '',
             nom: '',
             date_debut: '',
             date_fin: '',
@@ -55,7 +55,16 @@ export default function AddEvent({ addEvent }) {
                 <div className="flex flex-column gap-4 p-fluid">
                     <div className="p-field">
                         <label htmlFor="type">Type</label>
-                        <Dropdown inputId="type" name="type" value={evenement.type} options={types} onChange={(e) => setEvenement({ ...evenement, type: e.value })} placeholder="Sélectionner un type" />
+                        <Dropdown
+                            inputId="type"
+                            name="type"
+                             className="dropdown-type"
+                            value={evenement.type}
+                            options={types}
+                            onChange={(e) => setEvenement({ ...evenement, type: e.value })}
+                            placeholder="Sélectionner un type"
+                            data-testid="dropdown-type"
+                        />
                     </div>
                     <div className="p-field">
                         <label htmlFor="nom">Nom</label>

@@ -46,7 +46,7 @@ function Connexion() {
 
             <div className="inscriptionForm">
                 <h1>Connexion</h1>
-                <form className="flex flex-column align-items-center justify-content-center" onSubmit={Connecter}>
+                <form className="flex flex-column align-items-center justify-content-center" role="form" onSubmit={Connecter}>
                     <label htmlFor="email">Email</label>
                     <input type="email" name="email" id="email" />
                     <label htmlFor="password">Mot de passe</label>

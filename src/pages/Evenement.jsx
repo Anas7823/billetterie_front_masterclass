@@ -72,7 +72,7 @@ export default function Evenement() {
                                 <p><span className="font-semibold">Date de fin:</span> {new Date(evenement.date_fin).toLocaleString()}</p>
                                 
                                 <p><span className="font-semibold">Nombre de places: </span> {evenement.nb_places}</p>
-                                <p><span className="font-semibold">Places restantes: </span> {placesRestantes(evenement)}</p>
+                                <p data-testid="places-restantes"><span className="font-semibold">Places restantes: </span> {placesRestantes(evenement)}</p>
                                 <p><span className="font-semibold">Description:</span> {evenement.description}</p>
                                 <p><span className="font-semibold">État:</span> {statusBadgeTemplate(evenement.etat === 'valide' ? "ouvert" : "annulé")}</p>
                                 {userConnected && evenement.etat === 'valide' && placesRestantes(evenement) > 0 && (

@@ -22,7 +22,7 @@ export default function ListEvents() {
     }, []);
 
     const statusBodyTemplate = (evenement) => {
-        return <Tag value={evenement.etat} severity={evenement.etat === 'ouvert' ? 'success' : 'danger'}></Tag>;
+        return <Tag data-testid="status-tag" value={evenement.etat} severity={evenement.etat === 'ouvert' ? 'success' : 'danger'}></Tag>;
     };
 
     const editEvent = (event) => {
@@ -64,7 +64,7 @@ export default function ListEvents() {
     const actionBodyTemplate = (evenement) => {
         return (
             <div className="flex items-center justify-center">
-                <Button icon="pi pi-pencil" className="p-button-rounded p-button-success p-mr-2" onClick={() => editEvent(evenement)} />
+                <Button icon="pi pi-pencil" className="p-button-rounded p-button-success p-mr-2" onClick={() => editEvent(evenement)}  data-testid={`edit-event-${evenement.id_evenement}`}/>
                 <Button icon="pi pi-times" className="p-button-rounded p-button-danger" onClick={() => deleteEvent(evenement)} />
             </div>
         );
